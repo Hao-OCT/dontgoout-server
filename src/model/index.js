@@ -1,5 +1,5 @@
-import { MongoClient, MongoCallback } from 'mongodb';
-
+import { MongoClient } from 'mongodb';
+export { getPostList, createPost } from './post';
 const mongoUsername = 'admin';
 const mongoPassword = 'adminPassword';
 
@@ -7,7 +7,7 @@ const connectionURL = `mongodb+srv://${mongoUsername}:${mongoPassword}@cluster0-
 
 const client = new MongoClient(connectionURL, { useUnifiedTopology: true });
 const dbName= 'dontgoout-database-dev';
-let db = null;
+export let db = null;
 let _connected = false;
 
 export function connect(callback){
@@ -33,7 +33,8 @@ export async function disconnect(force = false){
 
 
 export default {
+  db,
+
   connect,
   disconnect,
-  db,
 };

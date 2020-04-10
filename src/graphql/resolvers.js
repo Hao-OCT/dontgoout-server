@@ -1,6 +1,11 @@
+import { getPostList, createPost } from '../model';
+
 const resolvers = {
   Query: {
-    hello: () => 'Hello World!',
+    posts: () => getPostList(),
+  },
+  Mutation: {
+    createPost: async (parent, args, context, info) => await createPost(args.input),
   }
 };
 
