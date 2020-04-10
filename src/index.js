@@ -16,4 +16,6 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
+app.get('/', (req, res) => res.send('Hello World! DontGoOut!'));
+
 app.listen(PORT, () => console.log(`DontGoOut Server listening on port ${PORT}! GraphQL at ${server.graphqlPath}`));
